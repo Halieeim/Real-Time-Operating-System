@@ -1,6 +1,4 @@
-<p align="center">
-  <h1>RTOS Summary</h1>
-</p>
+<h1 align="center">RTOS Summary</h1>
 
 
 ## Task/Thread:
