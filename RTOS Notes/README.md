@@ -116,9 +116,29 @@
 > Using Mutual Exclusion Access
 >
 > Examples:
->
->> * Disable and Enable Interrupts (Not a good solution)
->>
->> * Disabling scheduling
->>
->> * Using Semaphores
+>> * __Disable and Enable Interrupts__ 
+>>> __Note1:__ Disabling the interrupt for a long time affect the response time of the system which known as __Interrupt Latency__. So this should be for as little time as possible.
+>>> __Note2:__ It's needed when sharing data with ISR.<br>.
+>> * __Disabling scheduling__
+>>> __Note1:__ If we do not share data with ISR, it is better to disable and enable scheduler.
+>>> __Note2:__ Here ISR will be executed immediately and when it is finished, the kernel will return to the interrupted task not the highest priority task, because of disabling the scheduler.<br>.
+>> * __Using Semaphores__
+>>> ```-```Its a kernel object that one or more threads of execution can __acquire__ or __release__ for the purposes of synchronization or mutual exclusion.
+>>> ```-```A Semaphore is like a key that enables a task to carry out some operations or to access a resource.<br>
+>>> **Note:** When a Semaphore is created, the kernel assigns to it:
+>>> * An associated semaphore control block (SCB)
+>>> * A unique ID
+>>> * A value (binary ot count according to its type)
+>>> * A task-waiting list
+>>>
+>>> __Semaphore Types:__
+>>> * **Binary Semaphore**
+>>> value = 0, if it is not available.
+>>> value = 1, if it is available.
+>>> * **Counting Semaphore**
+>>> value = 0, if it is not available.
+>>> value > 0, if it is available.
+>>> **Note:** In Counting Semaphore, more than one task can acquire the semaphore at the same time, unlike binary semaphore that allows only one task to acquire the semaphore.
+
+__Interrupt Latency:__ is the time taken by the system to respond to an interrupt.
+
