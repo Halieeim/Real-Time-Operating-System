@@ -43,7 +43,8 @@
     Look at Non-Preemptive and preemptive kernels.
 
 ## CPU starvation
-> is a phenomenon associated with the Priority scheduling algorithms. A process that is present in the ready state and has low priority keeps waiting for the CPU allocation because some other process with higher priority comes with due respect time.
+> * is a phenomenon associated with the Priority scheduling algorithms. A process that is present in the ready state and has low priority keeps waiting for the CPU allocation because some other process with higher priority comes with due respect time.<br>
+> * In a preemptive multitasking environment, if a higher priority tasks are not designed to block, CPU starvation is most likely to happen.
 
 ## What if two tasks in the ready state have the same priority?
 
@@ -148,7 +149,7 @@ __Interrupt Latency:__ is the time taken by the system to respond to an interrup
 ## Dead Lock
 > ```-```Also called Deadly Embrace.<br>
 > ```-```Its main reason is bad design.<br>
-> ```-```When two tasks are waiting the held by the other.<br>
+> ```-```When two tasks are waiting the resource held by the other.<br>
 > Example:
 >> * Task1 has an exclusive access to Resource1.
 >> * And Task2 has an exclusive access to Resource2.
@@ -159,4 +160,20 @@ __Interrupt Latency:__ is the time taken by the system to respond to an interrup
 > **Avoiding Dead Lock**
 > * Through a timeout; If the resouce is not available for a certain time, the task will resume executing.
 > * Good Design.
+
+## Resource Synchronization
+> * Determines whether access to a shared resouce is safe, and if not, when it will be safe.
+> * Access by multiple tasks must be synchronized to maintain the integrity of a shared resource.
+> * Semaphore are useful either for synchronizing execution of multiple tasks or for coordinating access to a shared resource.
+
+## Priority Inversion
+> Is a situation in which a low-priority task executes while a higher priority task is waiting.
+
+## Priority Inheritance
+> * is a resource access control protocol that raises the priority of a task.
+> * The task must has dynamic priority not static.
+> * This help reducing the impact and time of inversion priority
+
+## Race Condition
+> When two or more tasks have access to a shared resource and they try to edit it at the same time.
 
