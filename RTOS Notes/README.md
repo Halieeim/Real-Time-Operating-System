@@ -27,7 +27,7 @@
 > * File
 
 ## Critical Region
-> is a section of code that should not be interrupted (ex: disable interrupt and enable it again after finishing)
+> is a section of code that should not be interrupted.
 
 ## Kernel
 > is the core of any OS. It contains:
@@ -125,6 +125,8 @@
 >> * __Using Semaphores__
 >>> ```-```Its a kernel object that one or more threads of execution can __acquire__ or __release__ for the purposes of synchronization or mutual exclusion.<br>
 >>> ```-```A Semaphore is like a key that enables a task to carry out some operations or to access a resource.<br>
+>>> ```-```It does not affect Interrupt Latency.<br>
+>>> ```-```It runs the task with highest priority immediately.<br> 
 >>> **Note:** When a Semaphore is created, the kernel assigns to it:
 >>> * An associated semaphore control block (SCB)
 >>> * A unique ID
@@ -132,13 +134,29 @@
 >>> * A task-waiting list
 >>>
 >>> __Semaphore Types:__
->>> * **Binary Semaphore**
+>>> * **Binary Semaphore**<br>
 >>> value = 0, if it is not available.
 >>> value = 1, if it is available.
->>> * **Counting Semaphore**
+>>> * **Counting Semaphore**<br>
 >>> value = 0, if it is not available.
 >>> value > 0, if it is available.<br>
 >>> **Note:** In Counting Semaphore, more than one task can acquire the semaphore at the same time, unlike binary semaphore that allows only one task to acquire the semaphore.
 
-__Interrupt Latency:__ is the time taken by the system to respond to an interrupt.
+__Interrupt Latency:__ is the time taken by the system to respond to an interrupt.<br>
+**Note:** In both Semaphore types, any task can release the semaphore even if the task did not initially acquire it.
+
+## Dead Lock
+> ```-```Also called Deadly Embrace.<br>
+> ```-```Its main reason is bad design.<br>
+> ```-```When two tasks are waiting the held by the other.<br>
+> Example:
+>> * Task1 has an exclusive access to Resource1.
+>> * And Task2 has an exclusive access to Resource2.
+>> * If task1 needs an exclusive access to Resource2.
+>> * And task2 needs an exclusive access to Resource1.
+>> * Both tasks will be blocked, and a DeadLock will happen.<br>
+>
+> **Avoiding Dead Lock**
+> * Through a timeout; If the resouce is not available for a certain time, the task will resume executing.
+> * Good Design.
 
