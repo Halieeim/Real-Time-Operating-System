@@ -173,7 +173,45 @@ __Interrupt Latency:__ is the time taken by the system to respond to an interrup
 > * is a resource access control protocol that raises the priority of a task.
 > * The task must has dynamic priority not static.
 > * This help reducing the impact and time of inversion priority
+> * Priority Inheritance does not cure priority inversion, it just minimzes its effect in some applications
 
 ## Race Condition
 > When two or more tasks have access to a shared resource and they try to edit it at the same time.
 
+## Mutex
+> * It is a short for MUtual EXclusion.
+> * Mutex is a special type of binary semaphore used for controling access to the shared resource.
+> * Mutex include priority inheritance mechanism to avoid extended priority inversion problem.
+>* Hard real time applications should be designed such that priority inversion does not happen in the first place.
+
+## Mutex VS. Binary Semaphore
+> * **Ownership**
+>> * Mutex is owned by the task that takes it, so when a task locks (acquire) a mutex only this task can unlock it.
+>> * Binary Semaphore has no owner, any task can unlock it.
+> * **Usage**
+>> * **Mutex is a locking mechanism** used to synchronize access to a shared resource.
+>> * **Binary Semaphore is a signaling mechanism** ("I am done, you can carry on." kind of signal).
+
+## Determinism VS. Responsiveness
+> * **Determinism:** determine the time that every task will need to be executed.
+> * **Responsiveness:** How your application be responsive to (External or Internal) events.
+> * **RTOS increases Responsiveness and decreases Determinism** because most of RTOS depend on preemptive kernel.
+
+## RTOS Advantages
+> * Multitasking
+> * Services
+> * Structure
+> * Portablitiy
+> * Security
+> * **Debugging** some IDEs show nice live data about you running process
+> * Support
+
+## RTOS Disadvantages
+> * Resources
+> * Determinism
+> * Design
+> * **Debugging** (complex due to race conditions on shared resources)
+> * Cost
+
+    For more details about RTOS pros & cons look at: 
+    "Why RTOS1", "Why RTOS2", "Why RTOS3", and "Why Not RTOS"
