@@ -5,3 +5,5 @@ In this repo, I am summarizing Real Time Operating System (RTOS) Concepts while 
 ## References
 > * https://www.youtube.com/playlist?list=PLQ55UVAFO9LWB1T8izPuWo02xKwB-lBqU
 by Eng. Abubakr Mohammed
+> * https://www.youtube.com/playlist?list=PLVxBVAdu4pn7UTHjmslHicZiYtyRbxs6z
+by Eng. Mostafa Saleh
