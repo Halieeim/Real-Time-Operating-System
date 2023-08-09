@@ -215,3 +215,16 @@ __Interrupt Latency:__ is the time taken by the system to respond to an interrup
 
     For more details about RTOS pros & cons look at: 
     "Why RTOS1", "Why RTOS2", "Why RTOS3", and "Why Not RTOS"
+
+## Rate Monotonic Scheduling (RMS)
+> * Task priorities are based on how often tasks execute.
+> * RMS makes a number of assumptions:
+>> * All tasks are periodic.
+>> * Tasks do not synchronize with another task (No shared resources).
+>> * Preemptive scheduling must be used.
+
+## Jitter
+> The difference between when a periodic task is supposed to run and when it actually runs.
+
+## Utilization
+> is defined as the percentage of available resources that are actually used.
