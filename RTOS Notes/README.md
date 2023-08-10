@@ -228,3 +228,23 @@ __Interrupt Latency:__ is the time taken by the system to respond to an interrup
 
 ## Utilization
 > is defined as the percentage of available resources that are actually used.
+
+## Memory Management
+> * malloc and free (dynamic allocation) execution time is unpredictable and may fail causing runtime error (Unavailable memory).
+> * Create memory pools of fixed size, each pool consists of a number of a fixed sizes of buffers that task can request.
+
+## Design Notes
+> * **Write short interrupt routines** for better task response and easier debugging.
+> * **How many tasks?**
+>> * **More Tasks Advantages:**
+>>> * Better control
+>>> * Modularity
+>>> * You could encapsulate more data
+>> * **More Tasks disadvantages:**
+>>> * More shared data
+>>> * More inter-task communication (microprocessor time and bugs)
+>>> * Will probably need more memory (each task has its own stack)
+>>> * Wasted time in context switching
+> * **Avoid creating and destroying tasks (after RTOS starts)**
+>> * Will consume a lot of time.
+>> * It is difficult to delete a task without leaving bugs.
